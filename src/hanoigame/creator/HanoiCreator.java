@@ -8,8 +8,8 @@ import java.util.List;
 
 public class HanoiCreator {
 
-    private List<HanoiStage> hanoiStageList = new ArrayList<>();
-    private List<HanoiRing> hanoiRingList = new ArrayList<>();
+    private final List<HanoiStage> hanoiStageList = new ArrayList<>();
+    private final List<HanoiRing> hanoiRingList = new ArrayList<>();
 
     public static HanoiCreator prepareHanoiElements(int numberOfStages, int numberOfCircles) {
         HanoiCreator hanoiCreator = new HanoiCreator();

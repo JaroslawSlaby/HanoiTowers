@@ -9,6 +9,6 @@ public class HanoiRing {
     }
 
     public String getRingValue() {
-        return "Ring no. " + value;
+        return "Ring no. " + value + " ";
     }
 }

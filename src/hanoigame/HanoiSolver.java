@@ -23,23 +23,24 @@ class HanoiSolver {
         counter += 1;
 
         if (numberOfRings == 1) {
-            swapRingBetweenStages(first, last);
-            printSwapping(numberOfRings, first, last);
+            HanoiRing ring = swapRingBetweenStages(first, last);
+            printSwapping(ring, first, last);
         } else {
             recursiveSolve(numberOfRings - 1, first, last, second);
-            swapRingBetweenStages(first, last);
-            printSwapping(numberOfRings, first, last);
+            HanoiRing ring = swapRingBetweenStages(first, last);
+            printSwapping(ring, first, last);
             recursiveSolve(numberOfRings - 1, second, first, last);
         }
     }
 
-    private void swapRingBetweenStages(HanoiStage first, HanoiStage second) {
+    private HanoiRing swapRingBetweenStages(HanoiStage first, HanoiStage second) {
         HanoiRing ring = first.getRingFromStage();
         second.addRingToStage(ring);
+        return ring;
     }
 
-    private void printSwapping(int numberOfRings, HanoiStage first, HanoiStage last) {
-        System.out.println("Ring no. " + numberOfRings + ": " + first.printStageValue() + " -> " + last.printStageValue());
+    private void printSwapping(HanoiRing ring, HanoiStage first, HanoiStage last) {
+        System.out.println(ring.getRingValue() + first.printStageValue() + " -> " + last.printStageValue());
     }
 
     private void printResults(HanoiStage first, HanoiStage last) {

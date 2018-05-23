@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class HanoiTowers {
+class HanoiTowers {
 
     private int counter = 0;
 

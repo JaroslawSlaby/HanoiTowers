@@ -2,7 +2,7 @@ package hanoigame;
 
 import hanoigame.creator.HanoiCreator;
 
-public class Game {
+class Game {
 
     public static void main(String[] args) {
         HanoiCreator hanoiCreator = HanoiCreator.prepareHanoiElements(3, 5);

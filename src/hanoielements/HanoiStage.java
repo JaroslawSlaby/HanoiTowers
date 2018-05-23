@@ -6,7 +6,7 @@ import java.util.List;
 public class HanoiStage {
 
     private final String stageLetter;
-    private List<HanoiRing> rings = new ArrayList<>();
+    private final List<HanoiRing> rings = new ArrayList<>();
 
     public HanoiStage(String stageLetter) {
         this.stageLetter = stageLetter;
