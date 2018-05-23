@@ -2,15 +2,16 @@ import java.util.Scanner;
 
 public class HanoiTowers {
 
-    private void solvePuzzle(int numberOfDisks, String firstStage, String secondStage, String thirdStage) {
+    private void solvePuzzle(int numberOfDisks, String startStage, String auxiliaryStage, String endStage) {
 
         if(numberOfDisks == 1) {
-            System.out.println(firstStage + " -> " + thirdStage);
+            System.out.println(startStage + " -> " + endStage);
         }
-
-//        solvePuzzle(numberOfDisks - 1);
-
-//        solvePuzzle(numberOfDisks - 1);
+        else {
+            solvePuzzle(numberOfDisks - 1, startStage, endStage, auxiliaryStage);
+            System.out.println(startStage + " -> " + auxiliaryStage);
+            solvePuzzle(numberOfDisks - 1, startStage, endStage, auxiliaryStage);
+        }
     }
 
 
