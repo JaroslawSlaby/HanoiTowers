@@ -8,14 +8,14 @@ import java.util.List;
 
 public class HanoiCreator {
 
-    private static final int NUMBER_OF_STAGES = 3;
+    private static final Integer NUMBER_OF_STAGES = 3;
 
     private final List<HanoiStage> hanoiStageList = new ArrayList<>();
     private final List<HanoiRing> hanoiRingList = new ArrayList<>();
 
     public static HanoiCreator prepareHanoiElements(int numberOfCircles) {
         HanoiCreator hanoiCreator = new HanoiCreator();
-        hanoiCreator.prepareStages(NUMBER_OF_STAGES);
+        hanoiCreator.prepareStages();
         hanoiCreator.prepareCircles(numberOfCircles);
         return hanoiCreator;
     }
@@ -34,13 +34,15 @@ public class HanoiCreator {
             hanoiRingList.add(new HanoiRing(i + 1));
         }
 
-        hanoiStageList.get(0).addAllRings(hanoiRingList);
+        HanoiStage first = hanoiStageList.get(0);
+        first.addAllRings(hanoiRingList);
     }
 
-    private void prepareStages(int numberOfStages) {
-        for (int i = 0; i < numberOfStages; i++) {
-            hanoiStageList.add(new HanoiStage(String.valueOf(Character.toChars(i + 65))));
+    private void prepareStages() {
+        for (int i = 0; i < HanoiCreator.NUMBER_OF_STAGES; i++) {
+            char[] value = Character.toChars(i + 65);
+            String valueToAdd = String.valueOf(value);
+            hanoiStageList.add(new HanoiStage(valueToAdd));
         }
-
     }
 }
