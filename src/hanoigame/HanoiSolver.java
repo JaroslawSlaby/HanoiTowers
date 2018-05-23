@@ -15,11 +15,8 @@ class HanoiSolver {
         HanoiStage second = stages.get(1);
         HanoiStage last = stages.get(2);
 
-
         recursiveSolve(numberOfRings, first, second, last);
-        System.out.println("Rings on first stage: " + first.getRingCount());
-        System.out.println("Rings on last stage: " + last.getRingCount());
-        System.out.println("Total moves: " + counter);
+        printResults(first, last);
     }
 
     private void recursiveSolve(int numberOfRings, HanoiStage first, HanoiStage second, HanoiStage last) {
@@ -34,7 +31,6 @@ class HanoiSolver {
             printSwapping(numberOfRings, first, last);
             recursiveSolve(numberOfRings - 1, second, first, last);
         }
-
     }
 
     private void swapRingBetweenStages(HanoiStage first, HanoiStage second) {
@@ -44,5 +40,11 @@ class HanoiSolver {
 
     private void printSwapping(int numberOfRings, HanoiStage first, HanoiStage last) {
         System.out.println("Ring no. " + numberOfRings + ": " + first.printStageValue() + " -> " + last.printStageValue());
+    }
+
+    private void printResults(HanoiStage first, HanoiStage last) {
+        System.out.println("Rings on first stage: " + first.getRingCount());
+        System.out.println("Rings on last stage: " + last.getRingCount());
+        System.out.println("Total moves: " + counter);
     }
 }

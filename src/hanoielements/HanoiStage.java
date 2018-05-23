@@ -16,8 +16,8 @@ public class HanoiStage {
         rings.add(ring);
     }
 
-    public void addAllRings(List<HanoiRing> rings) {
-        this.rings.addAll(rings);
+    public void addAllRings(List<HanoiRing> ringsToAdd) {
+        rings.addAll(ringsToAdd);
     }
 
     public HanoiRing getRingFromStage() {
