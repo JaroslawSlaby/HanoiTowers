@@ -2,15 +2,17 @@ import java.util.Scanner;
 
 public class HanoiTowers {
 
-    private void solvePuzzle(int numberOfDisks, String startStage, String auxiliaryStage, String endStage) {
+    private int counter = 0;
 
+    private void solvePuzzle(int numberOfDisks, String startStage, String auxiliaryStage, String endStage) {
+        counter++;
         if(numberOfDisks == 1) {
-            System.out.println(startStage + " -> " + endStage);
+            System.out.println(numberOfDisks + ": " + startStage + " -> " + endStage);
         }
         else {
             solvePuzzle(numberOfDisks - 1, startStage, endStage, auxiliaryStage);
-            System.out.println(startStage + " -> " + auxiliaryStage);
-            solvePuzzle(numberOfDisks - 1, startStage, endStage, auxiliaryStage);
+            System.out.println(numberOfDisks + ": " + startStage + " -> " + endStage);
+            solvePuzzle(numberOfDisks - 1, auxiliaryStage, startStage, endStage);
         }
     }
 
@@ -21,5 +23,6 @@ public class HanoiTowers {
         System.out.print("Enter number of disks: ");
         int numberOfDisks = input.nextInt();
         hanoiTowers.solvePuzzle(numberOfDisks, "A", "B", "C");
+        System.out.println("Total moves needed: " + hanoiTowers.counter);
     }
 }
